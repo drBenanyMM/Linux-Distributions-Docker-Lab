@@ -1,0 +1,13 @@
+# Volumes locaux Docker
+donnees_debian/
+donnees_fedora/
+donnees_alpine/
+donnees_suse/
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.swp
+
+# MacOS
+.DS_Store
