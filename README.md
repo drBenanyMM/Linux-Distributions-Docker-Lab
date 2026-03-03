@@ -52,3 +52,27 @@ services:
     image: opensuse/tumbleweed:latest
     container_name: lab-suse
     tty: true
+
+
+## 🚀 Installation et lancement
+
+### 1️⃣ Cloner le dépôt
+
+```bash
+git clone https://github.com/drBenanyMM/Linux-Distributions-Docker-Lab.git
+cd Linux-Distributions-Docker-Lab
+
+### 2️⃣ Démarrer tous les conteneurs
+
+```bash
+docker compose up -d
+
+### 3️⃣ Accéder à un conteneur
+
+#### Pour Debian :
+
+```bash
+docker exec -it lab-debian bash
+## 📄 Licence
+
+Projet académique à but pédagogique.
