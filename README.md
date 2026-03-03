@@ -53,7 +53,7 @@ services:
     container_name: lab-suse
     tty: true
 
-
+---
 ## 🚀 Installation et lancement
 
 ### 1️⃣ Cloner le dépôt
@@ -76,3 +76,115 @@ docker exec -it lab-debian bash
 ## 📄 Licence
 
 Projet académique à but pédagogique.
+
+
+## 🖥️ Commandes essentielles pour le Docker Lab
+
+Cette section liste toutes les commandes que tu peux utiliser pour **installer, configurer et tester ton lab multi-distributions**.
+
+
+### 1️⃣ Démarrage et gestion des conteneurs
+
+- **Démarrer tous les conteneurs** :  
+
+```bash
+docker compose up -d
+
+Accéder à un conteneur :
+
+# Debian
+docker exec -it lab-debian bash
+
+# Alpine
+docker exec -it lab-alpine sh
+
+# Fedora
+docker exec -it lab-fedora bash
+
+# openSUSE
+docker exec -it lab-suse bash
+
+Arrêter les conteneurs sans perdre les données :
+
+docker compose stop
+
+Redémarrer les conteneurs :
+
+docker compose start
+
+Supprimer les conteneurs mais garder les volumes :
+
+docker compose down
+
+Supprimer conteneurs et volumes (tout est perdu) :
+
+docker compose down -v
+
+2️⃣ Mise à jour et outils système dans Debian
+
+Mettre à jour le système :
+
+apt update && apt upgrade -y
+
+Installer les outils système indispensables :
+
+apt install -y man-db sudo bash-completion
+
+Ces outils permettent :
+
+d’utiliser le manuel (man ls)
+
+d’exécuter des commandes administrateur avec sudo
+
+d’activer l’autocomplétion avec la touche TAB
+
+Installer les outils de texte et réseau :
+
+apt install -y nano curl wget
+
+Installer les outils de surveillance système :
+
+apt install -y htop procps
+
+Installer l’outil de changement d’utilisateur et créer un étudiant :
+
+apt install -y login
+useradd -m etudiant
+
+L’option -m crée automatiquement le dossier /home/etudiant.
+
+3️⃣ Tests et vérification
+
+Vérifier l’état des conteneurs :
+
+docker compose ps
+
+Créer un fichier de test dans le conteneur :
+
+touch /home/etudiant/test.txt
+echo "Bonjour Docker!" > /home/etudiant/test.txt
+
+Vérifier sur ton hôte (volume) :
+Les fichiers créés dans le conteneur sont sauvegardés dans :
+
+donnees_debian/  # pour Debian
+donnees_fedora/  # pour Fedora
+donnees_alpine/  # pour Alpine
+donnees_suse/    # pour openSUSE
+4️⃣ Git et push sur GitHub
+
+Ajouter les fichiers modifiés :
+
+git add .
+
+Commit des modifications :
+
+git commit -m "Mise à jour du README et du docker-compose"
+
+Pousser sur GitHub :
+
+git push -u origin main
+
+⚠️ Assure-toi que le remote est bien configuré avec :
+
+git remote set-url origin https://github.com/drBenanyMM/Linux-Distributions-Docker-Lab.git
