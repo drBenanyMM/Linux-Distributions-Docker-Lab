@@ -153,38 +153,3 @@ useradd -m etudiant
 
 L’option -m crée automatiquement le dossier /home/etudiant.
 
-3️⃣ Tests et vérification
-
-Vérifier l’état des conteneurs :
-
-docker compose ps
-
-Créer un fichier de test dans le conteneur :
-
-touch /home/etudiant/test.txt
-echo "Bonjour Docker!" > /home/etudiant/test.txt
-
-Vérifier sur ton hôte (volume) :
-Les fichiers créés dans le conteneur sont sauvegardés dans :
-
-donnees_debian/  # pour Debian
-donnees_fedora/  # pour Fedora
-donnees_alpine/  # pour Alpine
-donnees_suse/    # pour openSUSE
-4️⃣ Git et push sur GitHub
-
-Ajouter les fichiers modifiés :
-
-git add .
-
-Commit des modifications :
-
-git commit -m "Mise à jour du README et du docker-compose"
-
-Pousser sur GitHub :
-
-git push -u origin main
-
-⚠️ Assure-toi que le remote est bien configuré avec :
-
-git remote set-url origin https://github.com/drBenanyMM/Linux-Distributions-Docker-Lab.git
