@@ -1,0 +1,20 @@
+services:
+  debian-lab:
+    image: debian:latest
+    container_name: lab-debian
+    tty: true
+
+  fedora-lab:
+    image: fedora:latest
+    container_name: lab-fedora
+    tty: true
+
+  alpine-lab:
+    image: alpine:latest
+    container_name: lab-alpine
+    tty: true
+
+  suse-lab:
+    image: opensuse/tumbleweed:latest
+    container_name: lab-suse
+    tty: true
