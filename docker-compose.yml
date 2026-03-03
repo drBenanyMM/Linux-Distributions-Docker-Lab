@@ -1,20 +1,29 @@
+
 services:
   debian-lab:
     image: debian:latest
     container_name: lab-debian
     tty: true
+    volumes:
+      - ./donnees_debian:/home/etudiant  # Sauvegarde le dossier de l'utilisateur etudiant sur ton hôte
 
   fedora-lab:
     image: fedora:latest
     container_name: lab-fedora
     tty: true
+    volumes:
+      - ./donnees_fedora:/home/etudiant  # Sauvegarde le dossier de l'utilisateur etudiant pour Fedora
 
   alpine-lab:
     image: alpine:latest
     container_name: lab-alpine
     tty: true
+    volumes:
+      - ./donnees_alpine:/home/etudiant  # Sauvegarde les fichiers créés dans Alpine
 
   suse-lab:
     image: opensuse/tumbleweed:latest
     container_name: lab-suse
     tty: true
+    volumes:
+      - ./donnees_suse:/home/etudiant   # Sauvegarde les fichiers créés dans SUSE
